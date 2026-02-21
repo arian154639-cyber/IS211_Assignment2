@@ -1,6 +1,8 @@
 """There are still a couple of errors left in my code, mainly the way printed statements return to the user 
 and the error log message only stating the line number instead of both the line number and the id number. 
-I was a bit confused with the instructions which is why improperly formatted dates return a custom message (see line 45)."""
+I was a bit confused with the instructions which is why improperly formatted dates return a custom message 
+(see line 45). Also, I chose to use a global logger at the top of the file instead of having it within 
+one of the functions because I was told that's a better structure."""
 
 import argparse
 import urllib.request
@@ -61,9 +63,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     csvData = main(args.url)
     personData = processData(csvData)
-while True:
-    id_number = input("Enter a valid id: ")
-    if id_number not in personData:  
-        print("Invalid id submitted.")
-        exit(1)         
-    displayPerson(id_number, personData)
+    while True:
+        id_number = input("Enter a valid id: ")
+        if id_number not in personData:  
+            print("Invalid id submitted.")
+            exit(1)         
+        displayPerson(id_number, personData)
