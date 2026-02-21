@@ -1,9 +1,11 @@
+"""There are still a couple of errors left in my code, mainly the way printed statements return to the user 
+and the error log message only stating the line number instead of both the line number and the id number. 
+I was a bit confused with the instructions which is why improperly formatted dates return a custom message (see line 45)."""
+
 import argparse
 import urllib.request
 import logging
 import datetime
-
-"""There are still a couple of errors left in my code, mainly the way printed statements return to the user and the error log message only stating the line number instead of both the line number and the id number. I was a bit confused with the instructions which is why improperly formatted dates return an error message instead of kicking out the user."""
 
 logger = logging.getLogger("assignment2")
 logger.setLevel(logging.ERROR)
@@ -28,7 +30,7 @@ def processData(data_downloader):
             birthday = datetime.datetime.strptime(information[2], "%d/%m/%Y")
         except ValueError:
             logger.error(f"Error processing line ({line_number})")
-            birthday = "malformed_date_detected"
+            birthday = "improperly_formatted_date_detected"
         result[id] = (name, birthday)
     return result
 
